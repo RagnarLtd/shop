@@ -9,32 +9,6 @@ from discounts.models import Discount
 User = get_user_model()
 
 
-# def get_disc(disc: Discount, price: float) -> float:
-#     if disc.discount_mech_id == 1:
-#         # если скидка в процентах
-#         return round(price * disc.discount_value / 100)
-#     elif disc.discount_mech_id == 2:
-#         # если скидка в рублях
-#         return price - disc.discount_value
-#     else:
-#         # если скидка - фиксированная сумма
-#         return disc.discount_value
-#
-#
-# def price_with_discount(goods_in_market: GoodsInMarket, category: Category) -> float:
-#     price = goods_in_market.price
-#     goods = goods_in_market.goods
-#     disc = Discount.objects.filter(
-#         Q(discount_type=1),
-#         Q(goods_1=goods) | Q(category_1=category)
-#     ).order_by('-weight').first()
-#     if disc:
-#         discount = get_disc(disc, price)
-#     else:
-#         discount = 0
-#     return price - discount
-
-
 class CartItems(models.Model):
     user = models.ForeignKey(User, verbose_name="Пользователь", on_delete=models.CASCADE, related_name="user_for_cart")
     product_in_shop = models.ForeignKey(GoodsInMarket,
