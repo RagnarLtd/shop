@@ -4,7 +4,8 @@ import random
 from django.core.handlers.wsgi import WSGIRequest
 from django.db.models import Q
 
-from cart.models import CartItems, get_disc, price_with_discount
+from cart.models import CartItems, price_with_discount
+from cart.models_service import get_disc
 from goods.models import GoodsInMarket, Goods
 from django.db.models import Sum
 
